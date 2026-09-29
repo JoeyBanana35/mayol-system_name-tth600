@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101a2b" />
+  <title>Music Library — Yves Mayol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="music-page">
+  <div class="music-shell">
+    <header class="app-header">
+      <a class="brand" href="Index.html" aria-label="Yves Mayol home"><span class="brand__mark">YM</span><span>Yves Mayol<span class="brand__sub">MUSIC LIBRARY</span></span></a>
+      <nav class="app-nav" aria-label="Main navigation"><a href="Index.html">Overview</a><a href="about.html">About</a><a class="is-current" href="music-taste.html">Music library</a></nav>
+      <span class="profile-chip" aria-label="Profile: Yves Mayol">YM</span>
+    </header>
+
+    <main class="library-main">
+      <div class="breadcrumb"><a href="Index.html">Workspace</a><span>/</span><span>Music library</span></div>
+      <section class="library-intro">
+        <div><p class="eyebrow">YOUR COLLECTION</p><h1>Music library</h1><p class="intro-copy">A considered collection of records, influences, and songs on repeat.</p></div>
+        <button class="btn btn--primary" id="addSongBtn" type="button"><span aria-hidden="true">＋</span> Add a song</button>
+      </section>
+
+      <section class="library-stats" aria-label="Collection summary">
+        <div class="stat-card"><span class="stat-icon" aria-hidden="true">♫</span><div><span class="stat-label">TRACKS IN LIBRARY</span><strong id="libraryCount">—</strong></div></div>
+        <div class="stat-note"><span class="status-dot"></span><span>Changes save automatically to your local database</span></div>
+      </section>
+
+      <section class="collection-card" aria-labelledby="collectionTitle">
+        <div class="collection-head"><div><h2 id="collectionTitle">All tracks</h2><p>Manage your personal listening collection</p></div><div class="collection-tools"><label class="search-box"><span aria-hidden="true">⌕</span><input id="searchSongs" type="search" placeholder="Search tracks or artists" aria-label="Search tracks or artists" /></label><label class="sort-control">Sort by <select id="sortSongs" aria-label="Sort songs"><option value="added">Recently added</option><option value="title">Title A–Z</option><option value="artist">Artist A–Z</option><option value="year">Release year</option></select></label></div></div>
+        <div class="song-list" id="songList" aria-live="polite"><div class="loading-state">Loading your collection…</div></div>
+        <div class="collection-foot"><span id="collectionFootnote">Your library is ready for your next favorite.</span><a href="Index.html">Back to overview <span aria-hidden="true">→</span></a></div>
+      </section>
+
+      <form class="song-form" id="songForm" novalidate>
+        <div class="form-heading"><div><p class="eyebrow">TRACK DETAILS</p><h2 class="song-form__title" id="songFormTitle">Add a song</h2></div><button class="form-close" id="cancelBtn" type="button" aria-label="Close form">×</button></div>
+        <div class="song-form__grid">
+          <div class="field field--wide"><label for="f-title">Song title <span>*</span></label><input id="f-title" name="title" type="text" placeholder="e.g. Computer Love" required maxlength="200" /></div>
+          <div class="field"><label for="f-artist">Artist <span>*</span></label><input id="f-artist" name="artist" type="text" placeholder="e.g. Zapp" required maxlength="200" /></div>
+          <div class="field"><label for="f-album">Album</label><input id="f-album" name="album" type="text" placeholder="Album name" maxlength="200" /></div>
+          <div class="field"><label for="f-year">Release year</label><input id="f-year" name="year" type="number" min="1000" max="9999" placeholder="e.g. 1985" /></div>
+          <div class="field"><label for="f-length">Track length</label><input id="f-length" name="length" type="text" placeholder="e.g. 4:53" maxlength="12" /></div>
+          <div class="field field--wide"><label for="f-audio">Preview URL <span class="optional">OPTIONAL</span></label><input id="f-audio" name="audioUrl" type="url" placeholder="https://example.com/preview.mp3" /></div>
+        </div>
+        <p class="form-error" id="formError" role="alert"></p>
+        <div class="song-form__actions"><button class="btn btn--primary" id="saveBtn" type="submit">Add to library</button><button class="btn btn--secondary" id="discardBtn" type="button">Cancel</button></div>
+      </form>
+    </main>
+    <footer class="app-footer"><span>Yves Mayol <span>·</span> Personal music library</span><span>Stored locally on this device</span></footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
